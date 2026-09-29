@@ -18,11 +18,13 @@ after(async () => {
 
 test('GET /health returns status ok', async () => {
   const response = await fetch(`${baseUrl}/health`);
-  assert.equal(response.status, 999);
+  assert.equal(response.status, 200);
   assert.deepEqual(await response.json(), { status: 'ok' });
 });
 
 test('unknown paths return 404', async () => {
   const response = await fetch(`${baseUrl}/missing`);
-  assert.equal(response.status, 999);
+  assert.equal(response.status, 404);
 });
+
+// made changes
